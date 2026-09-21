@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AUREN Living | Modern Furniture</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: #f5f1ea;
+    color: #24211e;
+    overflow-x: hidden;
+}
+
+/* Animated background */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f7f3ec, #e9e0d3, #f5eee5);
+}
+
+.blob {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: .25;
+    animation: float 15s infinite alternate ease-in-out;
+}
+
+.blob:nth-child(1) {
+    background: #c9a77b;
+    top: -150px;
+    left: -100px;
+}
+
+.blob:nth-child(2) {
+    background: #98765b;
+    right: -150px;
+    top: 30%;
+    animation-delay: 3s;
+}
+
+.blob:nth-child(3) {
+    background: #e4c9a7;
+    left: 30%;
+    bottom: -200px;
+    animation-delay: 6s;
+}
+
+@keyframes float {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(100px, 70px) scale(1.2);
+    }
+}
+
+/* Navbar */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 18px 6%;
+    backdrop-filter: blur(18px);
+    background: rgba(245, 241, 234, .75);
+    border-bottom: 1px solid rgba(50,40,30,.08);
+}
+
+.navbar {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #24211e;
+}
+
+.logo-symbol {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #24211e;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-family: "Playfair Display";
+    font-size: 21px;
+}
+
+.logo-text strong {
+    display: block;
+    font-family: "Playfair Display";
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.logo-text span {
+    font-size: 8px;
+    letter-spacing: 4px;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #3c3732;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #9a7047;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-btn {
+    border: none;
+    background: rgba(255,255,255,.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 17px;
+    transition: .3s;
+}
+
+.icon-btn:hover {
+    background: #24211e;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Hero */
+
+.hero {
+    min-height: 100vh;
+    padding: 150px 6% 80px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 1px solid #bda88f;
+    border-radius: 30px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: "Playfair Display";
+    font-size: clamp(48px, 6vw, 86px);
+    line-height: .98;
+    font-weight: 600;
+}
+
+.hero h1 span {
+    color: #98704c;
+    font-style: italic;
+}
+
+.hero p {
+    max-width: 530px;
+    margin: 25px 0;
+    line-height: 1.8;
+    color: #625b54;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 25px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn-dark {
+    background: #24211e;
+    color: white;
+}
+
+.btn-light {
+    background: transparent;
+    border: 1px solid #aaa093;
+    color: #24211e;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.hero-image {
+    height: 600px;
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 30px 70px rgba(50,40,30,.2);
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 1s;
+}
+
+.hero-image:hover img {
+    transform: scale(1.05);
+}
+
+.hero-card {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    right: 25px;
+    background: rgba(255,255,255,.78);
+    backdrop-filter: blur(15px);
+    padding: 18px;
+    border-radius: 20px;
+}
+
+/* Sections */
+
+section {
+    padding: 100px 6%;
+}
+
+.section-container {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-family: "Playfair Display";
+    font-size: clamp(35px, 4vw, 55px);
+}
+
+.section-title p {
+    color: #746c63;
+}
+
+/* Categories */
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 14px;
+}
+
+.category {
+    height: 160px;
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.category img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.category:hover img {
+    transform: scale(1.1);
+}
+
+.category::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,.65));
+}
+
+.category span {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    color: white;
+    z-index: 2;
+    font-weight: 600;
+}
+
+/* Search */
+
+.shop-tools {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.search {
+    flex: 1;
+    min-width: 250px;
+    padding: 15px 20px;
+    border-radius: 30px;
+    border: 1px solid #cfc3b5;
+    background: rgba(255,255,255,.6);
+    outline: none;
+    font-size: 15px;
+}
+
+.filter {
+    padding: 15px 20px;
+    border-radius: 30px;
+    border: 1px solid #cfc3b5;
+    background: white;
+}
+
+/* Products */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 22px;
+}
+
+.product {
+    background: rgba(255,255,255,.62);
+    border: 1px solid rgba(100,80,60,.1);
+    border-radius: 25px;
+    overflow: hidden;
+    transition: .35s;
+}
+
+.product:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(50,40,30,.13);
+}
+
+.product-image {
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .6s;
+}
+
+.product:hover .product-image img {
+    transform: scale(1.08);
+}
+
+.wishlist {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,.85);
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info small {
+    color: #92785f;
+}
+
+.product-info h3 {
+    margin: 7px 0;
+    font-family: "Playfair Display";
+    font-size: 21px;
+}
+
+.rating {
+    font-size: 13px;
+    color: #98704c;
+}
+
+.price {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.product-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.product-buttons button {
+    flex: 1;
+    padding: 11px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-btn {
+    background: #24211e;
+    color: white;
+}
+
+.quick-btn {
+    background: #e9e1d7;
+}
+
+/* Banner */
+
+.banner {
+    margin: 40px 6%;
+    min-height: 450px;
+    border-radius: 35px;
+    background:
+        linear-gradient(90deg, rgba(30,25,20,.82), rgba(30,25,20,.2)),
+        url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    color: white;
+}
+
+.banner-content {
+    max-width: 550px;
+}
+
+.banner h2 {
+    font-family: "Playfair Display";
+    font-size: clamp(40px,5vw,70px);
+}
+
+.banner p {
+    line-height: 1.8;
+    margin: 20px 0;
+    color: #eee;
+}
+
+/* Contact */
+
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contact h2 {
+    font-family: "Playfair Display";
+    font-size: 50px;
+}
+
+.contact p {
+    color: #6d655d;
+    line-height: 1.8;
+    margin: 20px 0;
+}
+
+.contact-info {
+    margin-top: 30px;
+}
+
+.contact-info div {
+    margin: 15px 0;
+}
+
+.form {
+    background: rgba(255,255,255,.65);
+    padding: 35px;
+    border-radius: 30px;
+}
+
+.form input,
+.form textarea,
+.form select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #d4c8ba;
+    border-radius: 12px;
+    background: #faf8f4;
+    outline: none;
+    font-family: inherit;
+}
+
+.form textarea {
+    height: 130px;
+    resize: vertical;
+}
+
+.form button {
+    width: 100%;
+}
+
+/* Footer */
+
+footer {
+    background: #24211e;
+    color: #ddd;
+    padding: 70px 6% 25px;
+}
+
+.footer-grid {
+    max-width: 1400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+footer h3 {
+    color: white;
+    font-family: "Playfair Display";
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+
+footer a {
+    display: block;
+    color: #aaa;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+footer a:hover {
+    color: white;
+}
+
+.copyright {
+    max-width: 1400px;
+    margin: 50px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    color: #888;
+    font-size: 13px;
+}
+
+/* Toast */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #24211e;
+    color: white;
+    padding: 15px 22px;
+    border-radius: 12px;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: .4s;
+    z-index: 9999;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Responsive */
+
+@media(max-width:1000px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero-container,
+    .contact {
+        grid-template-columns: 1fr;
+    }
+
+    .categories {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .products {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .hero-image {
+        height: 450px;
+    }
+}
+
+@media(max-width:600px) {
+
+    section {
+        padding: 70px 5%;
+    }
+
+    .hero {
+        padding: 120px 5% 60px;
+    }
+
+    .hero-image {
+        height: 380px;
+    }
+
+    .categories {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .banner {
+        margin: 20px;
+        padding: 35px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact h2 {
+        font-size: 40px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background">
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+</div>
+
+<header>
+    <div class="navbar">
+
+        <a href="#" class="logo">
+            <div class="logo-symbol">A</div>
+            <div class="logo-text">
+                <strong>AUREN</strong>
+                <span>LIVING</span>
+            </div>
+        </a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#shop">Shop</a>
+            <a href="#collections">Collections</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="icon-btn" onclick="focusSearch()">⌕</button>
+            <button class="icon-btn" onclick="showToast('Wishlist opened')">♡</button>
+            <button class="icon-btn" onclick="showToast('Your cart is ready')">🛒</button>
+        </div>
+
+    </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-container">
+
+        <div>
+            <span class="badge">MODERN FURNITURE • EST. 2026</span>
+
+            <h1>
+                Make your space
+                <span>beautiful.</span>
+            </h1>
+
+            <p>
+                Discover timeless furniture designed for modern living.
+                Explore sofas, beds, dining sets, tables, chairs and
+                thousands of pieces created to transform your space.
+            </p>
+
+            <div class="buttons">
+                <a href="#shop" class="btn btn-dark">Explore Collection →</a>
+                <a href="#contact" class="btn btn-light">Request Furniture</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=85">
+
+            <div class="hero-card">
+                <strong>Featured Collection</strong>
+                <p>Contemporary living, thoughtfully designed.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CATEGORIES -->
+
+<section id="categories">
+
+    <div class="section-container">
+
+        <div class="section-title">
+            <div>
+                <p>EXPLORE</p>
+                <h2>Shop by category</h2>
+            </div>
+        </div>
+
+        <div class="categories">
+
+            <div class="category">
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=700&q=80">
+                <span>Sofas</span>
+            </div>
+
+            <div class="category">
+                <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=700&q=80">
+                <span>Bedroom</span>
+            </div>
+
+            <div class="category">
+                <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=700&q=80">
+                <span>Dining</span>
+            </div>
+
+            <div class="category">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=80">
+                <span>Office</span>
+            </div>
+
+            <div class="category">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=700&q=80">
+                <span>Tables</span>
+            </div>
+
+            <div class="category">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80">
+                <span>Decor</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SHOP -->
+
+<section id="shop">
+
+    <div class="section-container">
+
+        <div class="section-title">
+            <div>
+                <p>CURATED FOR YOU</p>
+                <h2>Featured furniture</h2>
+            </div>
+        </div>
+
+        <div class="shop-tools">
+
+            <input
+                class="search"
+                id="search"
+                type="text"
+                placeholder="Search sofas, beds, tables..."
+                onkeyup="searchProducts()"
+            >
+
+            <select class="filter" onchange="filterProducts(this.value)">
+                <option value="all">All Furniture</option>
+                <option value="Living">Living Room</option>
+                <option value="Bedroom">Bedroom</option>
+                <option value="Dining">Dining</option>
+                <option value="Office">Office</option>
+            </select>
+
+        </div>
+
+        <div class="products" id="products">
+
+            <!-- Product 1 -->
+
+            <div class="product" data-category="Living" data-name="Luna Sofa">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85">
+                    <button class="wishlist" onclick="wishlist(this)">♡</button>
+                </div>
+
+                <div class="product-info">
+                    <small>LIVING ROOM</small>
+                    <h3>Luna Modular Sofa</h3>
+                    <div class="rating">★★★★★ 4.9</div>
+                    <div class="price">₹48,999</div>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn" onclick="addCart('Luna Modular Sofa')">Add to Cart</button>
+                        <button class="quick-btn" onclick="quickView('Luna Modular Sofa')">View</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Product 2 -->
+
+            <div class="product" data-category="Bedroom" data-name="Aria Bed">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=85">
+                    <button class="wishlist" onclick="wishlist(this)">♡</button>
+                </div>
+
+                <div class="product-info">
+                    <small>BEDROOM</small>
+                    <h3>Aria Platform Bed</h3>
+                    <div class="rating">★★★★★ 4.8</div>
+                    <div class="price">₹39,499</div>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn" onclick="addCart('Aria Platform Bed')">Add to Cart</button>
+                        <button class="quick-btn" onclick="quickView('Aria Platform Bed')">View</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Product 3 -->
+
+            <div class="product" data-category="Dining" data-name="Oak Dining Table">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=900&q=85">
+                    <button class="wishlist" onclick="wishlist(this)">♡</button>
+                </div>
+
+                <div class="product-info">
+                    <small>DINING</small>
+                    <h3>Oakline Dining Table</h3>
+                    <div class="rating">★★★★★ 4.9</div>
+                    <div class="price">₹31,999</div>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn" onclick="addCart('Oakline Dining Table')">Add to Cart</button>
+                        <button class="quick-btn" onclick="quickView('Oakline Dining Table')">View</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Product 4 -->
+
+            <div class="product" data-category="Office" data-name="Executive Chair">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1580480055273-228ff5388ef8?auto=format&fit=crop&w=900&q=85">
+                    <button class="wishlist" onclick="wishlist(this)">♡</button>
+                </div>
+
+                <div class="product-info">
+                    <small>OFFICE</small>
+                    <h3>Forma Executive Chair</h3>
+                    <div class="rating">★★★★★ 4.7</div>
+                    <div class="price">₹18,999</div>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn" onclick="addCart('Forma Executive Chair')">Add to Cart</button>
+                        <button class="quick-btn" onclick="quickView('Forma Executive Chair')">View</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Product 5 -->
+
+            <div class="product" data-category="Living" data-name="Velvet Lounge Chair">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=900&q=85">
+                    <button class="wishlist" onclick="wishlist(this)">♡</button>
+                </div>
+
+                <div class="product-info">
+                    <small>LIVING ROOM</small>
+                    <h3>Velvet Lounge Chair</h3>
+                    <div class="rating">★★★★★ 4.8</div>
+                    <div class="price">₹16,499</div>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn" onclick="addCart('Velvet Lounge Chair')">Add to Cart</button>
+                        <button class="quick-btn" onclick="quickView('Velvet Lounge Chair')">View</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Product 6 -->
+
+            <div class="product" data-category="Living" data-name="Marble Coffee Table">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=900&q=85">
+                    <button class="wishlist" onclick="wishlist(this)">♡</button>
+                </div>
+
+                <div class="product-info">
+                    <small>LIVING ROOM</small>
+                    <h3>Marble Coffee Table</h3>
+                    <div class="rating">★★★★★ 4.9</div>
+                    <div class="price">₹12,999</div>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn" onclick="addCart('Marble Coffee Table')">Add to Cart</button>
+                        <button class="quick-btn" onclick="quickView('Marble Coffee Table')">View</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Product 7 -->
+
+            <div class="product" data-category="Bedroom" data-name="Minimal Wardrobe">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=900&q=85">
+                    <button class="wishlist" onclick="wishlist(this)">♡</button>
+                </div>
+
+                <div class="product-info">
+                    <small>BEDROOM</small>
+                    <h3>Minimal Wardrobe</h3>
+                    <div class="rating">★★★★★ 4.6</div>
+                    <div class="price">₹44,999</div>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn" onclick="addCart('Minimal Wardrobe')">Add to Cart</button>
+                        <button class="quick-btn" onclick="quickView('Minimal Wardrobe')">View</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Product 8 -->
+
+            <div class="product" data-category="Dining" data-name="Modern Dining Chair">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1551298370-9d3d53740c72?auto=format&fit=crop&w=900&q=85">
+                    <button class="wishlist" onclick="wishlist(this)">♡</button>
+                </div>
+
+                <div class="product-info">
+                    <small>DINING</small>
+                    <h3>Curve Dining Chair</h3>
+                    <div class="rating">★★★★★ 4.8</div>
+                    <div class="price">₹7,499</div>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn" onclick="addCart('Curve Dining Chair')">Add to Cart</button>
+                        <button class="quick-btn" onclick="quickView('Curve Dining Chair')">View</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- COLLECTION BANNER -->
+
+<div class="banner" id="collections">
+
+    <div class="banner-content">
+
+        <p>THE NEW COLLECTION</p>
+
+        <h2>Designed for modern living.</h2>
+
+        <p>
+            Discover furniture that balances natural materials,
+            thoughtful proportions and everyday comfort.
+        </p>
+
+        <a href="#shop" class="btn btn-light">Explore Collection →</a>
+
+    </div>
+
+</div>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="section-container">
+
+        <div class="contact">
+
+            <div>
+
+                <p>GET IN TOUCH</p>
+
+                <h2>Let's create your space.</h2>
+
+                <p>
+                    Looking for a specific piece of furniture?
+                    Need help choosing the right design?
+                    Send us your requirements and our team will
+                    get in touch with you.
+                </p>
+
+                <div class="contact-info">
+
+                    <div>
+                        📞 <strong>7492871135</strong>
+                    </div>
+
+                    <div>
+                        ✉️ hello@aurenliving.com
+                    </div>
+
+                    <div>
+                        📍 India
+                    </div>
+
+                </div>
+
+            </div>
+
+            <form class="form" onsubmit="submitForm(event)">
+
+                <input type="text" placeholder="Your full name" required>
+
+                <input type="tel" placeholder="Phone number" required>
+
+                <input type="email" placeholder="Email address" required>
+
+                <select required>
+                    <option value="">What are you looking for?</option>
+                    <option>Sofa</option>
+                    <option>Bed</option>
+                    <option>Dining Furniture</option>
+                    <option>Office Furniture</option>
+                    <option>Tables</option>
+                    <option>Wardrobe</option>
+                    <option>Custom Furniture</option>
+                    <option>Other</option>
+                </select>
+
+                <textarea placeholder="Tell us what you need..."></textarea>
+
+                <button class="btn btn-dark" type="submit">
+                    Send Enquiry →
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+            <h3>AUREN Living</h3>
+            <p>
+                Modern furniture for thoughtfully designed spaces.
+            </p>
+        </div>
+
+        <div>
+            <h3>Shop</h3>
+            <a href="#shop">Living Room</a>
+            <a href="#shop">Bedroom</a>
+            <a href="#shop">Dining</a>
+            <a href="#shop">Office</a>
+        </div>
+
+        <div>
+            <h3>Company</h3>
+            <a href="#home">About</a>
+            <a href="#collections">Collections</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div>
+            <h3>Contact</h3>
+            <a href="tel:7492871135">7492871135</a>
+            <a href="#contact">Send Enquiry</a>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 AUREN Living. All rights reserved.
+    </div>
+
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+/* Toast notification */
+
+function showToast(message) {
+
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
+}
+
+/* Add to cart */
+
+function addCart(product) {
+    showToast(product + " added to your cart 🛒");
+}
+
+/* Wishlist */
+
+function wishlist(button) {
+
+    if (button.textContent === "♡") {
+        button.textContent = "♥";
+        showToast("Added to wishlist ♡");
+    } else {
+        button.textContent = "♡";
+        showToast("Removed from wishlist");
+    }
+}
+
+/* Quick view */
+
+function quickView(product) {
+    showToast("Viewing " + product);
+}
+
+/* Search */
+
+function searchProducts() {
+
+    const search = document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    const products = document.querySelectorAll(".product");
+
+    products.forEach(product => {
+
+        const name = product.dataset.name.toLowerCase();
+
+        if (name.includes(search)) {
+            product.style.display = "";
+        } else {
+            product.style.display = "none";
+        }
+
+    });
+}
+
+/* Category filter */
+
+function filterProducts(category) {
+
+    const products = document.querySelectorAll(".product");
+
+    products.forEach(product => {
+
+        if (category === "all" || product.dataset.category === category) {
+            product.style.display = "";
+        } else {
+            product.style.display = "none";
+        }
+
+    });
+}
+
+/* Search button */
+
+function focusSearch() {
+
+    document.getElementById("shop").scrollIntoView({
+        behavior: "smooth"
+    });
+
+    setTimeout(() => {
+        document.getElementById("search").focus();
+    }, 600);
+}
+
+/* Contact form */
+
+function submitForm(event) {
+
+    event.preventDefault();
+
+    showToast("Thank you! Your enquiry has been received.");
+
+    event.target.reset();
+}
+
+</script>
+
+</body>
+</html>
